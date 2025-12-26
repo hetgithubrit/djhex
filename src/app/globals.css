@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-manrope: var(--font-manrope);
+  --font-poppins: var(--font-poppins);
+  --font-audiowide: var(--font-audiowide);
+}
+
+:root {
+  --bg: #0a0620;
+  --panel: #11082e;
+  --muted: #dcd4ff;
+  --text: #ffffff;
+  --accent1: #5c00ce;
+  --accent2: #5c00ce;
+  --accent3: #ffffff;
+  --glow: 0 0 24px rgba(92, 0, 206, 0.35), 0 0 48px rgba(92, 0, 206, 0.25);
+  --radius: 16px;
+  --shadow: 0 14px 55px rgba(0, 0, 0, 0.55);
+  --border-color: rgba(255, 255, 255, 0.12);
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--bg)] text-[var(--text)] antialiased overflow-x-hidden;
+    background: radial-gradient(circle at 20% 20%, rgba(92,0,206,0.14), transparent 28%), 
+                radial-gradient(circle at 80% 0%, rgba(92,0,206,0.1), transparent 28%), 
+                var(--bg);
+  }
+}
+
+@layer components {
+  .wrapper {
+    @apply w-full max-w-[1200px] mx-auto px-4;
+  }
+  
+  .pill {
+    @apply inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-[13px] tracking-wide text-white;
+    background: linear-gradient(120deg, rgba(92,0,206,0.22), rgba(92,0,206,0.18));
+  }
+
+  .cta {
+    @apply px-4 py-2.5 rounded-xl font-bold text-white border-0 cursor-pointer transition-transform duration-200 shadow-[var(--glow)];
+    background: linear-gradient(120deg, var(--accent1), var(--accent2));
+  }
+  .cta:hover {
+    @apply -translate-y-[1px];
+    box-shadow: 0 12px 36px rgba(0,224,255,0.35);
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2.5 rounded-xl border border-white/10 text-[#dfe6ff] bg-[#8955e9] cursor-pointer font-semibold transition-all duration-200;
+  }
+  .btn-secondary:hover {
+    @apply border-white/30;
+    box-shadow: 0 12px 36px rgba(0, 252, 0, 0.35);
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-[#0a0620];
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#5c00ce] rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[#7a1fe2];
+  }
+}

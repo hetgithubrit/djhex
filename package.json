@@ -1,15 +1,28 @@
 {
-  "name": "djhex-portfolio",
-  "version": "1.0.0",
+  "name": "temp_app",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js",
-    "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles.css --minify",
-    "watch:css": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles.css --watch"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "ejs": "^3.1.9"
+    "lucide-react": "^0.562.0",
+    "next": "16.1.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
