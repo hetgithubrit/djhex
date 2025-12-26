@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ HEX - Professional DJ Services Brochure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .brochure-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Header Section */
+    .brochure-header {
+      background: linear-gradient(135deg, #5c00ce, #7c5cff);
+      color: #ffffff;
+      padding: 60px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brochure-header::before {
+      content: "🎵";
+      position: absolute;
+      font-size: 200px;
+      opacity: 0.1;
+      top: -40px;
+      right: -40px;
+    }
+
+    .brochure-header h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    .brochure-header .tagline {
+      font-size: 20px;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    /* Content Section */
+    .brochure-content {
+      padding: 50px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #5c00ce;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 3px solid #5c00ce;
+      padding-bottom: 10px;
+    }
+
+    .section-title .icon {
+      font-size: 32px;
+    }
+
+    .about-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333;
+      background: #f5f7ff;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 4px solid #5c00ce;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .service-item {
+      background: linear-gradient(135deg, #f5f7ff, #fff);
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid #e8eaed;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(92, 0, 206, 0.15);
+      border-color: #5c00ce;
+    }
+
+    .service-item .emoji {
+      font-size: 28px;
+    }
+
+    .service-item .text {
+      font-size: 15px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Music Genres */
+    .genres-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .genre-tag {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 25px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    /* Contact Info */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);             
+      gap: 20px;
+    }
+
+    .contact-item {
+      background: #f5f7ff;
+      padding: 20px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .contact-item .icon {
+      font-size: 32px;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #5c00ce, #7c5cff);
+      color: #fff;
+      border-radius: 12px;
+    }
+
+    .contact-item .info {
+      flex: 1;
+    }
+
+    .contact-item .label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .contact-item .value {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Why Choose Section */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-box {
+      text-align: center;
+      padding: 25px;
+      background: linear-gradient(135deg, #fff, #f5f7ff);
+      border-radius: 16px;
+      border: 2px solid #e8eaed;
+    }
+
+    .feature-box .number {
+      font-size: 36px;
+      font-weight: 800;
+      color: #5c00ce;
+      margin-bottom: 8px;
+    }
+
+    .feature-box .label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, #5c00ce, #7c5cff);
+      color: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cta-section h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .cta-section p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      opacity: 0.95;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #ffffff;
+      color: #5c00ce;
+      padding: 16px 40px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer Quote */
+    .footer-quote {
+      text-align: center;
+      padding: 30px 50px;
+      background: #f5f7ff;
+      font-size: 18px;
+      font-style: italic;
+      color: #5c00ce;
+      font-weight: 600;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+
+      .brochure-container {
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .service-item:hover,
+      .feature-box:hover {
+        transform: none;
+        box-shadow: none;
+      }
+    }
+
+    /* Top Bar */
+    .top-bar {
+      background: linear-gradient(90deg, #1c0f42, #110536);
+      padding: 12px 0;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      z-index: 25;
+      font-family: 'Poppins', sans-serif;
+    }
+    .top-contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      color: #dcd4ff;
+    }
+    .top-contact a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+      color: #dcd4ff;
+      text-decoration: none;
+    }
+    .top-contact a:hover {
+      color: #fff;
+    }
+    .top-contact .separator {
+      color: rgba(255,255,255,0.15);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .brochure-header { padding: 40px 20px; }
+      .brochure-header h1 { font-size: 32px; }
+      .brochure-header .tagline { font-size: 16px; }
+      .brochure-content { padding: 30px 20px; }
+      
+      .services-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .genres-grid,
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 0; }
+      .brochure-container { border-radius: 0; }
+      
+      .genres-grid,
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-title { font-size: 24px; }
+      .feature-box .number { font-size: 28px; }
+
+      /* Fix Contact Overflow */
+      .contact-item {
+        padding: 15px;
+        gap: 12px;
+      }
+      .contact-item .icon {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+      .contact-item .value {
+        font-size: 14px;
+        word-break: break-word; /* Prevents overflow */
+        overflow-wrap: break-word;
+      }
+      
+      /* Mobile Top Bar */
+      .top-contact {
+        justify-content: space-between;
+        font-size: 11px;
+        gap: 4px;
+        white-space: nowrap;
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="top-contact">
+      <a href="mailto:djhex1907@gmail.com">✉️ djhex1907@gmail.com</a>
+      <span class="separator">|</span>
+      <a href="tel:+918140442505">📞 +91 814044 2505</a>
+    </div>
+  </div>
+  <div class="brochure-container">
+    <!-- Header -->
+    <div class="brochure-header">
+      <h1>DJ HEX</h1>
+      <p class="tagline">Professional DJ Services</p>
+    </div>
+
+    <!-- Content -->
+    <div class="brochure-content">
+      <!-- About Section -->
+      <div class="section">
+        <h2 class="section-title">
+          <span class="icon">🎧</span>
+          About DJ Hex
+        </h2>
+        <p class="about-text">
+          Hailing from Ahmedabad, DJ Hex is a dynamic and passionate music producer and DJ dedicated to creating unforgettable auditory experiences.
+        </p>
+      </div>
+
+      <!-- Services Section -->
+      <div class="section">
+        <h2 class="section-title">
+          <span class="icon">🎉</span>
+          Services Offered
+        </h2>
+        <div class="services-grid">
+          <div class="service-item">
+            <span class="emoji">💒</span>
+            <span class="text">Wedding Events & Engagements</span>
+          </div>
+          <div class="service-item">
+            <span class="emoji">🏢</span>
+            <span class="text">Corporate Events & Brand Launches</span>
+          </div>
+          <div class="service-item">
+            <span class="emoji">🎂</span>
+            <span class="text">Birthday Parties & Celebrations</span>
+          </div>
+          <div class="service-item">
+            <span class="emoji">🎓</span>
+            <span class="text">Graduation Parties</span>
+          </div>
+          <div class="service-item">
+            <span class="emoji">🎪</span>
+            <span class="text">Club Nights & Festivals</span>
+          </div>
+          <div class="service-item">
+            <span class="emoji">⚽</span>
+            <span class="text">Sports Events & Tournaments</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Music Genres Section -->
+      <div class="section">
+        <h2 class="section-title">
+          <span class="icon">🎵</span>
+          Music Genres
+        </h2>
+        <div class="genres-grid">
+          <div class="genre-tag">EDM & House Music</div>
+          <div class="genre-tag">Bollywood Remixes</div>
+          <div class="genre-tag">Hip-Hop Beats</div>
+          <div class="genre-tag">Wedding Mixes</div>
+          <div class="genre-tag">International Hits</div>
+          <div class="genre-tag">Custom Playlists</div>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="section">
+        <h2 class="section-title">
+          <span class="icon">📞</span>
+          Contact Information
+        </h2>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="icon">📱</div>
+            <div class="info">
+              <div class="label">Phone</div>
+              <div class="value">+91 8140442505</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">✉️</div>
+            <div class="info">
+              <div class="label">Email</div>
+              <div class="value">djhex1907@gmail.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">📸</div>
+            <div class="info">
+              <div class="label">Instagram</div>
+              <div class="value">@hex.dj</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">📍</div>
+            <div class="info">
+              <div class="label">Location</div>
+              <div class="value">Ahmedabad, Gujarat</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Choose Section -->
+      <div class="section">
+        <h2 class="section-title">
+          <span class="icon">⭐</span>
+          Why Choose DJ Hex?
+        </h2>
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="number">250+</div>
+            <div class="label">Events Completed</div>
+          </div>
+          <div class="feature-box">
+            <div class="number">5+</div>
+            <div class="label">Years Experience</div>
+          </div>
+          <div class="feature-box">
+            <div class="number">100%</div>
+            <div class="label">Satisfaction Rate</div>
+          </div>
+          <div class="feature-box">
+            <div class="number">✓</div>
+            <div class="label">Professional Equipment</div>
+          </div>
+          <div class="feature-box">
+            <div class="number">✓</div>
+            <div class="label">Custom Playlists</div>
+          </div>
+          <div class="feature-box">
+            <div class="number">✓</div>
+            <div class="label">On-time Service</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <h2>Book Your Event Today!</h2>
+        <p>Ready to create unforgettable moments? Contact DJ Hex now!</p>
+        <a href="tel:+918140442505" class="cta-button">📞 Call Now</a>
+      </div>
+    </div>
+
+    <!-- Footer Quote -->
+    <div class="footer-quote">
+      "Trust builds beats, just like music"
+    </div>
+  </div>
+</body>
+</html>
+
+

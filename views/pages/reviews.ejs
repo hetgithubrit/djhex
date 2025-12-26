@@ -1,0 +1,31 @@
+<%- include('../partials/head', { title: 'Reviews', navLinks, currentPath }) %>
+
+  <div class="wrapper">
+    <section class="section" id="reviews">
+      <div class="section-head">
+        <div>
+          <div class="pill">Google Reviews</div>
+          <h2>Clients who vibed with DJ HEX</h2>
+        </div>
+      </div>
+      <div class="reviews">
+        <div class="review-track">
+          <% reviews.forEach(r => { %>
+            <div class="review">
+              <header>
+                <div class="face"><%= r.initials %></div>
+                <div>
+                  <h4><%= r.name %></h4>
+                  <div class="stars">★★★★★</div>
+                </div>
+              </header>
+              <p><%= r.text %></p>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<%- include('../partials/footer', { year }) %>
+

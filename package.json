@@ -1,0 +1,15 @@
+{
+  "name": "djhex-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build:css": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles.css --minify",
+    "watch:css": "tailwindcss -i ./src/styles/tailwind.css -o ./src/styles.css --watch"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ejs": "^3.1.9"
+  }
+}

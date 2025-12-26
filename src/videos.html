@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best DJ in Ahmedabad | Wedding & Party</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" type="image/png" href="./images/favicon.png">
+  
+  <!-- TAILWIND CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: {
+        preflight: false, // IMPORANT: Disable reset to prevent breaking existing site header/footer
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <div class="wrapper">
+      <div class="top-contact">
+        <a href="mailto:djhex1907@gmail.com">✉️ djhex1907@gmail.com</a>
+        <span class="separator">|</span>
+        <a href="tel:+918140442505">📞 +91 814044 2505</a>
+      </div>
+    </div>
+  </div>
+  <header>
+    <div class="wrapper">
+      <nav>
+        <div class="brand">
+          <span class="brand-name">DJ HEX</span>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+          <a href="./index.html">Home</a>
+          <a href="./about.html">About</a>
+          <a href="./services.html">Services</a>
+          <a href="./gallery.html">Gallery</a>
+          <a href="./videos.html" class="active">Videos</a>
+          <a href="./reviews.html">Reviews</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+        <a class="cta" href="./contact.html">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrapper">
+      <section class="section video-section">
+        <div class="section-head">
+          <div>
+            <div class="pill">Watch</div>
+            <h2>Live Performances</h2>
+          </div>
+        </div>
+        
+        <div id="video-grid" class="video-grid">
+          <!-- Populated by JS -->
+          <div style="color: rgba(255,255,255,0.5); grid-column: 1/-1; text-align: center; padding: 40px;">
+            Loading clips...
+          </div>
+        </div>
+
+        <div class="w-full text-center mt-12 mb-8">
+          <p class="text-[#dcd4ff] text-lg mb-6">More videos available on our Instagram</p>
+          <a href="https://www.instagram.com/hex.dj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#833ab4] to-[#fd1d1d] hover:brightness-110 text-white font-bold rounded-lg transition-all shadow-lg hover:-translate-y-1 no-underline text-sm">
+            <svg fill="currentColor" width="20" height="20" viewBox="0 0 24 24">
+              <path d="M7.75 3h8.5A4.75 4.75 0 0 1 21 7.75v8.5A4.75 4.75 0 0 1 16.25 21h-8.5A4.75 4.75 0 0 1 3 16.25v-8.5A4.75 4.75 0 0 1 7.75 3Zm0 1.5A3.25 3.25 0 0 0 4.5 7.75v8.5A3.25 3.25 0 0 0 7.75 19.5h8.5a3.25 3.25 0 0 0 3.25-3.25v-8.5A3.25 3.25 0 0 0 16.25 4.5h-8.5Zm8.75 1.25a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/>
+            </svg>
+            <span>Follow @hex.dj for More</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+  
+  <!-- Video Modal -->
+  <div id="video-modal" class="video-modal">
+    <button class="modal-close" aria-label="Close video">✕</button>
+    <div class="modal-content">
+      <video id="modal-video" controls playsinline></video>
+    </div>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous video">❮</button>
+    <button class="lightbox-nav lightbox-next" aria-label="Next video">❯</button>
+  </div>
+  
+  <a class="whatsapp-fab" href="https://wa.me/918140442505" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" role="presentation">
+      <path d="M16 3C9.373 3 4 8.16 4 14.506c0 2.276.66 4.393 1.8 6.185L4 29l8.576-2.72c1.08.3 2.23.46 3.424.46 6.627 0 12-5.16 12-11.506C28 8.16 22.627 3 16 3Zm0 2c5.523 0 10 4.246 10 9.506 0 5.26-4.477 9.506-10 9.506-1.08 0-2.123-.16-3.107-.48l-.44-.14-4.97 1.58 1.46-4.34-.28-.44C7.64 18.83 7 17.01 7 15.506 7 9.246 10.477 5 16 5Zm-4.02 4.182c-.184-.004-.41.01-.657.058-.458.09-1.08.47-1.25.92-.305.82-.312 1.6-.06 2.45.31 1.04 1.04 2.06 1.86 2.96.24.26.47.52.74.76.72.66 1.52 1.24 2.42 1.62.94.4 1.8.86 2.84.92.68.04 1.24-.06 1.8-.38.28-.14.66-.52.76-.82.1-.32.1-.72.02-1-.06-.24-.2-.3-.42-.42-.28-.16-.56-.3-.84-.46-.44-.26-.66-.18-.94.18-.26.34-.52.7-.86.88-.16.08-.34.06-.52.02-.44-.1-1.02-.36-1.48-.62-.7-.4-1.3-.9-1.84-1.48-.26-.3-.52-.62-.7-.98-.06-.1-.08-.2-.08-.3.02-.14.12-.26.22-.36.16-.18.34-.36.44-.58.08-.16.12-.32.06-.52-.1-.38-.62-1.52-.82-1.92-.12-.22-.26-.32-.48-.34Z"/>
+    </svg>
+  </a>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="wrapper footer-grid">
+        <div>
+          <h4>DJ HEX</h4>
+          <p>As a professional DJ with over five years of experience, I provide high-quality musical entertainment that leaves a lasting impression on your guests.</p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-contact">
+            <div class="contact-row">
+              <div class="contact-icon">📍</div>
+              <div>Available for events across India & destinations.</div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon">☎</div>
+              <div>+91 814044 2505<br>+91 98253 79804</div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon">✉</div>
+              <div><a class="contact-link" href="mailto:djhex1907@gmail.com">djhex1907@gmail.com</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="presentation">
+                  <path d="M7.75 3h8.5A4.75 4.75 0 0 1 21 7.75v8.5A4.75 4.75 0 0 1 16.25 21h-8.5A4.75 4.75 0 0 1 3 16.25v-8.5A4.75 4.75 0 0 1 7.75 3Zm0 1.5A3.25 3.25 0 0 0 4.5 7.75v8.5A3.25 3.25 0 0 0 7.75 19.5h8.5a3.25 3.25 0 0 0 3.25-3.25v-8.5A3.25 3.25 0 0 0 16.25 4.5h-8.5Zm8.75 1.25a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/>
+                </svg>
+              </div>
+              <div><a class="contact-link" href="https://www.instagram.com/hex.dj?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">@hex.dj</a></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4>Useful Links</h4>
+          <ul class="footer-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./services.html">Services</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./videos.html">Videos</a></li>
+            <li><a href="./reviews.html">Reviews</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./contact.html">Book Now</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Service Areas</h4>
+          <ul class="footer-areas">
+            <li><a href="#">DJ in Ahmedabad</a></li>
+            <li><a href="#">DJ in Surat</a></li>
+            <li><a href="#">DJ in Anand</a></li>
+            <li><a href="#">DJ in Nadiad</a></li>
+            <li><a href="#">DJ in Udaipur</a></li>
+            <li><a href="#">DJ in Jaipur</a></li>
+            <li><a href="#">DJ in Goa</a></li>
+            <li><a href="#">DJ in Mumbai</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span data-year></span> DJ HEX. Crafted for unforgettable nights.
+    </div>
+  </footer>
+  <script src="./main.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Configuration
+      const videoFolder = './video/'; // Relative path for static file compatibility
+      const videos = [
+        "IMG_9771.MP4",
+        "IMG_9772.MP4",
+        "20251122_232312.mp4",
+        "IMG_2838.MOV",
+        "IMG_2844 (1).MOV",
+        "VID_20251128_22173628.mp4",
+        "VID_20251128_22202647.mp4",
+        "Video-2.mp4",
+        "Video-518.mp4"
+      ]; 
+
+      // Variables
+      let currentVideoIndex = 0;
+      
+      const grid = document.getElementById('video-grid');
+      const modal = document.getElementById('video-modal');
+      const modalVideo = document.getElementById('modal-video');
+      const modalClose = document.querySelector('.modal-close');
+      const prevBtn = document.querySelector('.lightbox-prev');
+      const nextBtn = document.querySelector('.lightbox-next');
+
+      // Clear loading state
+      grid.innerHTML = '';
+
+      if (videos.length === 0) {
+        grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #888;">No videos found. Please add videos to /public/video/</div>';
+        return;
+      }
+
+      // Render Grid
+      videos.forEach((filename, index) => {
+        const card = document.createElement('div');
+        card.className = 'video-card';
+        
+        // Video Source
+        const src = `${videoFolder}${filename}`;
+
+        card.innerHTML = `
+          <video src="${src}#t=1" muted preload="metadata" onmouseover="this.play()" onmouseout="this.pause();this.currentTime=0;" style="width: 100%; height: 100%; object-fit: cover; object-position: bottom;"></video>
+          <div class="video-overlay">
+            <div class="play-icon"></div>
+          </div>
+          <!-- <div class="video-title">Live Performance ${index + 1}</div> -->
+        `;
+
+        card.addEventListener('click', () => {
+          openModal(index);
+        });
+
+        grid.appendChild(card);
+      });
+
+      // Modal Logic
+      function openModal(index) {
+        if (index < 0 || index >= videos.length) return;
+        currentVideoIndex = index;
+        updateModalVideo();
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function updateModalVideo() {
+        const src = `${videoFolder}${videos[currentVideoIndex]}`;
+        // Pause current if playing
+        modalVideo.pause();
+        modalVideo.src = src;
+        // Small delay to allow source switch
+        setTimeout(() => {
+          modalVideo.play().catch(e => console.log("Autoplay prevented:", e));
+        }, 50);
+      }
+
+      function showNextVideo() {
+        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+        updateModalVideo();
+      }
+
+      function showPrevVideo() {
+        currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+        updateModalVideo();
+      }
+
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        modalVideo.pause();
+        modalVideo.currentTime = 0;
+        setTimeout(() => {
+          modalVideo.src = '';
+        }, 300);
+      }
+
+      // Event Listeners
+      modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPrevVideo();
+      });
+      
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showNextVideo();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') showPrevVideo();
+        if (e.key === 'ArrowRight') showNextVideo();
+      });
+
+      // Swipe Logic
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const minSwipeDistance = 50;
+
+      modal.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      modal.addEventListener('touchmove', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      modal.addEventListener('touchend', () => {
+        if (!touchStartX || !touchEndX) return;
+        const distance = touchStartX - touchEndX;
+        
+        if (Math.abs(distance) > minSwipeDistance) {
+            if (distance > 0) showNextVideo(); // Left Swipe -> Next
+            else showPrevVideo(); // Right Swipe -> Prev
+        }
+        
+        touchStartX = 0;
+        touchEndX = 0;
+      });
+      
+      // Update year
+      const yearSpan = document.querySelector('[data-year]');
+      if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | DJ HEX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <div class="wrapper">
+      <nav>
+        <div class="brand">
+          <span class="brand-name">DJ HEX</span>
+        </div>
+        <div class="nav-links">
+          <% navLinks.forEach(link => { %>
+            <a href="<%= link.href %>" class="<%= currentPath === link.href ? 'active' : '' %>"><%= link.label %></a>
+          <% }) %>
+        </div>
+        <a class="cta" href="/contact">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
