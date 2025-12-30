@@ -4,6 +4,15 @@
   --font-manrope: var(--font-manrope);
   --font-poppins: var(--font-poppins);
   --font-audiowide: var(--font-audiowide);
+
+  @keyframes scroll-reviews {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 1.5rem));
+    }
+  }
 }
 
 :root {
@@ -23,9 +32,13 @@
 @layer base {
   body {
     @apply bg-[var(--bg)] text-[var(--text)] antialiased overflow-x-hidden;
-    background: radial-gradient(circle at 20% 20%, rgba(92,0,206,0.14), transparent 28%), 
-                radial-gradient(circle at 80% 0%, rgba(92,0,206,0.1), transparent 28%), 
-                var(--bg);
+    background: radial-gradient(
+        circle at 20% 20%,
+        rgba(92, 0, 206, 0.14),
+        transparent 28%
+      ),
+      radial-gradient(circle at 80% 0%, rgba(92, 0, 206, 0.1), transparent 28%),
+      var(--bg);
   }
 }
 
@@ -33,10 +46,14 @@
   .wrapper {
     @apply w-full max-w-[1200px] mx-auto px-4;
   }
-  
+
   .pill {
     @apply inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-[13px] tracking-wide text-white;
-    background: linear-gradient(120deg, rgba(92,0,206,0.22), rgba(92,0,206,0.18));
+    background: linear-gradient(
+      120deg,
+      rgba(92, 0, 206, 0.22),
+      rgba(92, 0, 206, 0.18)
+    );
   }
 
   .cta {
@@ -45,7 +62,7 @@
   }
   .cta:hover {
     @apply -translate-y-[1px];
-    box-shadow: 0 12px 36px rgba(0,224,255,0.35);
+    box-shadow: 0 12px 36px rgba(0, 224, 255, 0.35);
   }
 
   .btn-secondary {
@@ -55,7 +72,7 @@
     @apply border-white/30;
     box-shadow: 0 12px 36px rgba(0, 252, 0, 0.35);
   }
-  
+
   /* Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;

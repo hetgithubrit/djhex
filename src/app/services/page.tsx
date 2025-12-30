@@ -4,11 +4,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useState } from "react";
 import { X, Check } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const services = [
   { 
     title: 'Weddings & Engagements', 
     desc: 'Curated ceremonies, sangeet, baraat, receptions, and love-filled dance floors.',
+    image: '/images/wedding-stage.jpg',
     details: [
       'Ceremony music & processional',
       'Cocktail hour background music',
@@ -23,6 +25,7 @@ const services = [
   { 
     title: 'Club Nights & Festivals', 
     desc: 'High-energy sets, live mixing, and impactful drops built for big-room vibes.',
+    image: '/images/clubb.jpg',
     details: [
       'High-energy sets',
       'Live mixing',
@@ -35,6 +38,7 @@ const services = [
   { 
     title: 'Private & Corporate Events', 
     desc: 'Professional sound, MC support, and crowd-first playlists for every audience.',
+    image: '/images/corporate.jpg',
     details: [
       'Professional sound',
       'MC support',
@@ -47,6 +51,7 @@ const services = [
   { 
     title: 'Birthday Parties', 
     desc: 'Custom themes, age-appropriate edits, and interactive sets that keep guests hyped.',
+    image: '/images/hbdd.jpg',
     details: [
       'Custom themes',
       'Age-appropriate edits',
@@ -58,6 +63,7 @@ const services = [
   { 
     title: 'Graduation Parties', 
     desc: 'Feel-good anthems, fresh remixes, and celebratory mixes for new milestones.',
+    image: '/images/graduation.jpg',
     details: [
       'Feel-good anthems',
       'Fresh remixes',
@@ -69,6 +75,7 @@ const services = [
   { 
     title: 'Anniversary Celebrations', 
     desc: 'Romantic selects with smooth transitions that honor your story and guests.',
+    image: '/images/annii.JPG',
     details: [
       'Romantic selects',
       'Smooth transitions',
@@ -77,10 +84,25 @@ const services = [
       'Decade hits'
     ]
   },
-   { title: 'Baby Showers', desc: 'Light, joyful soundtracks and crystal-clear audio for speeches and games.', details: ['Joyful soundtracks', 'Clear audio', 'Speech support', 'Game music'] },
-   { title: 'Sports Events & Tournaments', desc: 'Stadium-style hype music, live commentary support, and energizing breaks.', details: ['Hype music', 'Live commentary', 'Energizing breaks', 'Walk-up songs'] },
-   { title: 'Product Launches & Brand Events', desc: 'On-brand sound design, clear announcements, and immersive atmospheres that impress.', details: ['On-brand sound', 'Clear announcements', 'Immersive atmosphere', 'Background loops'] }
+  { title: 'Baby Showers', desc: 'Light, joyful soundtracks and crystal-clear audio for speeches and games.', image: '/images/baby.jpg', details: ['Joyful soundtracks', 'Clear audio', 'Speech support', 'Game music'] },
+  { title: 'Sports Events & Tournaments', desc: 'Stadium-style hype music, live commentary support, and energizing breaks.', image: '/images/Sports.jpeg', details: ['Hype music', 'Live commentary', 'Energizing breaks', 'Walk-up songs'] },
+  { title: 'Product Launches & Brand Events', desc: 'On-brand sound design, clear announcements, and immersive atmospheres that impress.', image: '/images/product.webp', details: ['On-brand sound', 'Clear announcements', 'Immersive atmosphere', 'Background loops'] }
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 6 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+};
 
 export default function Services() {
   const [activeService, setActiveService] = useState<typeof services[0] | null>(null);
@@ -90,70 +112,173 @@ export default function Services() {
       <Navbar />
       <main className="pt-24 min-h-screen">
         <div className="wrapper">
-          <div className="text-center mb-12">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="text-center mb-12"
+          >
              <div className="pill mb-4">Services</div>
              <h1 className="text-3xl md:text-5xl font-bold font-poppins">Tailored Sound</h1>
              <p className="text-[#dcd4ff] mt-4 max-w-2xl mx-auto">From intimate gatherings to massive festivals, we have the perfect package for you.</p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {services.map((s, i) => (
-              <div 
+              <motion.div 
                 key={i} 
-                className="group p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors cursor-pointer flex flex-col items-start text-left"
+                variants={itemVariants}
+                whileHover={{ y: -4 }}
+                whileTap={{ scale: 0.98 }}
+                className="group rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-colors cursor-pointer overflow-hidden"
                 onClick={() => setActiveService(s)}
               >
-                <div className="w-12 h-12 bg-[#5c00ce]/20 text-[#8955e9] rounded-lg mb-4 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">🎵</div>
-                <h3 className="font-bold text-xl mb-2">{s.title}</h3>
-                <p className="text-[#dcd4ff] text-sm mb-4 leading-relaxed">{s.desc}</p>
-                <div className="mt-auto text-[#8955e9] font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                  See Details <span>→</span>
+                {/* Image on Top */}
+                <div className="w-full h-48 overflow-hidden">
+                  <motion.img 
+                    src={s.image} 
+                    alt={s.title}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              </div>
+                
+                {/* Content Below */}
+                <div className="p-6 flex flex-col">
+                  
+                  <h3 className="font-bold text-xl mb-2">{s.title}</h3>
+                  <p className="text-[#dcd4ff] text-sm mb-4 leading-relaxed">{s.desc}</p>
+                  <div className="mt-auto text-[#8955e9] font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                    See Details <span>→</span>
+                  </div>
+                </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
+
+          {/* Minimal Closing Section */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-20 mb-16 text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold font-poppins mb-4 text-white">
+              Have a different event in mind?
+            </h2>
+            <div className="space-y-1 mb-10">
+              <p className="text-[#dcd4ff] text-lg font-medium">
+                I provide custom DJ solutions beyond these services.
+              </p>
+              <p className="text-[#dcd4ff]/60 text-base">
+                Contact me for more details and personalized event options.
+              </p>
+            </div>
+            <motion.a 
+              href="/contact" 
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.95 }}
+              className="cta inline-block px-10 py-4"
+            >
+              Let's Plan Your Event
+            </motion.a>
+          </motion.div>
         </div>
       </main>
       <Footer />
 
       {/* Service Modal */}
-      {activeService && (
-        <div 
-          className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
-          onClick={() => setActiveService(null)}
-        >
-          <div 
-            className="bg-[#11082e] border border-white/10 w-full max-w-lg rounded-2xl p-6 md:p-8 relative shadow-2xl animate-in zoom-in-95 duration-200"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {activeService && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setActiveService(null)}
           >
-            <button 
-              onClick={() => setActiveService(null)}
-              className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors"
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="bg-[#11082e] border border-white/10 w-full max-w-lg rounded-2xl p-6 md:p-8 relative shadow-2xl flex flex-col max-h-[90vh] overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X size={24} />
-            </button>
-            
-            <h3 className="text-2xl font-bold font-poppins mb-2">{activeService.title}</h3>
-            <p className="text-[#dcd4ff] text-sm mb-6">{activeService.desc}</p>
-            
-            <div className="space-y-3">
-              <h4 className="text-sm font-bold text-white uppercase tracking-wider">What's Included</h4>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {activeService.details?.map((detail, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm text-[#dcd4ff]">
-                    <Check size={16} className="text-[#8955e9] shrink-0 mt-0.5" />
-                    <span>{detail}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <button 
+                onClick={() => setActiveService(null)}
+                className="absolute top-4 right-4 text-white/50 hover:text-white transition-colors z-20 p-2"
+                aria-label="Close modal"
+              >
+                <X size={24} />
+              </button>
+              
+              <div className="overflow-y-auto pr-2 custom-scrollbar">
+                {/* Event Image */}
+                {activeService.image && (
+                  <div className="w-full h-48 rounded-xl overflow-hidden mb-6">
+                    <img 
+                      src={activeService.image} 
+                      alt={activeService.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+                
+                <h3 className="text-2xl font-bold font-poppins mb-2">{activeService.title}</h3>
+                <p className="text-[#dcd4ff] text-sm mb-6">{activeService.desc}</p>
+                
+                <div className="space-y-3">
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider">What's Included</h4>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {activeService.details?.map((detail, idx) => (
+                      <motion.li 
+                        key={idx} 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.05 + idx * 0.03 }}
+                        className="flex items-start gap-2 text-sm text-[#dcd4ff]"
+                      >
+                        <Check size={16} className="text-[#8955e9] shrink-0 mt-0.5" />
+                        <span>{detail}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
 
-            <div className="mt-8 pt-6 border-t border-white/10 flex justify-end">
-                <a href="/contact" className="cta w-full text-center sm:w-auto">Book This Service</a>
-            </div>
-          </div>
-        </div>
-      )}
+              <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3 justify-end">
+                  <motion.button 
+                    onClick={() => setActiveService(null)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-2.5 rounded-xl border border-white/10 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm font-medium order-2 sm:order-1"
+                  >
+                    Close
+                  </motion.button>
+                  <motion.a 
+                    href="/contact" 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="cta w-full text-center sm:w-auto order-1 sm:order-2"
+                  >
+                    Book This Service
+                  </motion.a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </>
   );
 }

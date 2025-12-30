@@ -8,13 +8,13 @@ import { X, Play } from "lucide-react";
 const videos = [
   { filename: 'IMG_9771.MP4', title: 'Live Performance 1' },
   { filename: 'IMG_9772.MP4', title: 'Live Performance 2' },
-  { filename: '20251122_232312.mp4', title: 'Live Performance 3' },
+  { filename: '20250822_204752 (1).mp4', title: 'Live Performance 3' },
   { filename: 'IMG_2838.MOV', title: 'Live Performance 4' },
   { filename: 'IMG_2844 (1).MOV', title: 'Live Performance 5' },
   { filename: 'VID_20251128_22173628.mp4', title: 'Live Performance 6' },
-  { filename: 'VID_20251128_22202647.mp4', title: 'Live Performance 7' },
-  { filename: 'Video-2.mp4', title: 'Live Performance 8' },
-  { filename: 'Video-518.mp4', title: 'Live Performance 9' }
+  { filename: 'VID_20251128_221736280.mp4', title: 'Live Performance 7' },
+  { filename: '20251122_232312.mp4', title: 'Live Performance 8' },
+  { filename: 'Video-518 (2).mp4', title: 'Live Performance 9' }
 ];
 
 export default function Videos() {
