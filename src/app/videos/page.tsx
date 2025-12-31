@@ -6,7 +6,7 @@ import { useState } from "react";
 import { X, Play } from "lucide-react";
 
 const videos = [
-  { filename: 'IMG_9771.MP4', title: 'Live Performance 1' },
+  { filename: 'IMG_9771.mov', title: 'Live Performance 1' },
   { filename: 'IMG_9772.MP4', title: 'Live Performance 2' },
   { filename: '20250822_204752 (1).mov', title: 'Live Performance 3' },
   { filename: 'IMG_2838.MOV', title: 'Live Performance 4' },
